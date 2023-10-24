@@ -1,7 +1,7 @@
 import requests
 from termcolor import colored
 import time
-
+import pytest
 
 # Replace 'YOUR_WEATHER_API_KEY' and 'YOUR_NEWS_API_KEY' with your actual API keys
 weather_api_key = 'a44aca2461859377ce41b350169592be'
@@ -60,7 +60,7 @@ def get_weather_data(city_name, units="metric"):
         print(f"An error occurred: {str(e)}")
     return None
 
-def fetch_and_display_news():
+def fetch_and_display_news(get_user_input=input):
     try:
         # Send an HTTP GET request to the News API
         response = requests.get(news_base_url, params=news_params)
@@ -80,7 +80,7 @@ def fetch_and_display_news():
                 print()
 
             while True:
-                choice = input("Enter an article number to view, (q) to quit, or (m) to return to the main menu: ")
+                choice = get_user_input(colored("Enter an article number to view, (q) to quit, or (m) to return to the main menu: ", "blue"))
                 if choice.lower() == "q":
                     break  # Quit and return to the main menu
                 elif choice.lower() == "m":
@@ -110,3 +110,6 @@ def fetch_and_display_news():
             print(f"Error: Unable to fetch news - Status Code: {response.status_code}")
     except Exception as e:
         print(f"An error occurred: {str(e)}")
+
+if __name__ == "__main__":
+    main()

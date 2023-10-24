@@ -1,42 +1,33 @@
-import npyscreen
+import os
+from tabulate import tabulate
+from colorama import Fore, Style
+from termcolor import colored
+from pyfiglet import Figlet
 
-class MyApplication(npyscreen.NPSAppManaged):
-    def onStart(self):
-        self.addForm("MAIN", MainForm, name="SkyScribe - Latest Headlines and Weather Forecasts")
+def generate_welcome_text():
+    custom_font = Figlet(font='slant')
+    welcome_text = custom_font.renderText("SkyScribe.")
+    colored_welcome_text = colored(welcome_text, 'blue', attrs=['bold'])
+    return colored_welcome_text
 
-class MainForm(npyscreen.Form):
-    def create(self):
-        self.add(npyscreen.FixedText, value="Welcome to SkyScribe!")
-        self.add(npyscreen.FixedText, value="Your Portal to the Latest Headlines and Weather Forecasts!")
-        self.add(npyscreen.FixedText, value="1. Weather")
-        self.add(npyscreen.FixedText, value="2. Latest News")
-        self.add(npyscreen.FixedText, value="3. Quit")
-        self.choice = self.add(npyscreen.TitleText, name="Enter your choice:")
+def display_menu():
+    os.system('clear')
+    print(generate_welcome_text())
+    print("Your daily news & weather app.")
+    print("===================================")
+    print("Main Menu:\n")
+    print("1. Weather 🌤️")
+    print("2. Latest News 🚨")
+    print("3. Quit")
+    print("===================================")
 
-    def on_ok(self):
-        choice = self.choice.value
-        if choice == "1":
-            self.parentApp.switchForm("WEATHER")
-        elif choice == "2":
-            self.parentApp.switchForm("NEWS")
-        elif choice == "3":
-            self.parentApp.switchForm(None)
-
-class WeatherForm(npyscreen.Form):
-    def create(self):
-        self.add(npyscreen.FixedText, value="Weather Data")
-        self.city = self.add(npyscreen.TitleText, name="Enter the name of a city:")
-        self.weather_info = self.add(npyscreen.TitleText, name="Weather Info:")
-
-    def on_ok(self):
-        city_name = self.city.value
-        # Get weather data and display it here
-
-class NewsForm(npyscreen.Form):
-    def create(self):
-        self.add(npyscreen.FixedText, value="Latest News")
-        # Fetch and display news articles here
-
-if __name__ == '__main__':
-    app = MyApplication()
-    app.run()
+def display_weather(weather_data):
+    if weather_data:
+        weather_info = weather_data.temp_print()
+        print("\nWeather Information 🌤️")
+        print("====================")
+        print(tabulate([["City:", weather_data.name], ["Temperature:", f"{weather_data.temp}°C"],
+                        ["High:", f"{weather_data.temp_max}°C"], ["Low:", f"{weather_data.temp_min}°C"]],
+                       tablefmt="fancy_grid"))
+    else:
+        print(Fore.RED + "Sorry, I couldn't retrieve weather information for that city." + Style.RESET_ALL)
