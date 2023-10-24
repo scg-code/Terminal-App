@@ -2,6 +2,7 @@ import os
 from colorama import Fore, Style
 from functions import get_weather_data, fetch_and_display_news
 from ui import display_menu, display_weather  # Add this import statement
+from termcolor import colored
 
 def main():
     while True:
@@ -9,7 +10,7 @@ def main():
         choice = input("Enter your choice: ")
 
         if choice == "1":
-            city_name = input("Enter the name of a city: ")
+            city_name = input(colored("Enter the name of a city: ", "yellow"))
             weather_data = get_weather_data(city_name)
             display_weather(weather_data)
             input("Press Enter to return...")  # Wait for user input before displaying the menu

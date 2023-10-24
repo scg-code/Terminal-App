@@ -4,18 +4,21 @@ from colorama import Fore, Style
 from termcolor import colored
 from pyfiglet import Figlet
 
+
+
+
 def generate_welcome_text():
     custom_font = Figlet(font='slant')
     welcome_text = custom_font.renderText("SkyScribe.")
-    colored_welcome_text = colored(welcome_text, 'blue', attrs=['bold'])
+    colored_welcome_text = colored(welcome_text, 'blue',attrs=["bold"])
     return colored_welcome_text
 
 def display_menu():
     os.system('clear')
     print(generate_welcome_text())
-    print("Your daily news & weather app.")
+    print(colored("Your daily news & weather app.", "yellow", attrs=["bold"]))
     print("===================================")
-    print("Main Menu:\n")
+    print(colored("Main Menu:\n", "blue", attrs=["bold"]))
     print("1. Weather 🌤️")
     print("2. Latest News 🚨")
     print("3. Quit")
