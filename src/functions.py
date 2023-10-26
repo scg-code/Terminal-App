@@ -97,26 +97,33 @@ def get_weather_data(city_name, units="metric"):
 
     Returns:
         WeatherData: An instance of WeatherData containing weather information, or None
-        if an error occurs.
+        if the city is not found or an error occurs.
     """
-    params = {
-        "q": city_name,
-        "units": units,
-        "appid": WEATHER_API_KEY,
-    }
+    # Validate the units parameter
+    if units not in ["metric", "imperial"]:
+        raise ValueError("Invalid units. Supported units are 'metric' and 'imperial'.")
 
     try:
+        params = {
+            "q": city_name,
+            "units": units,
+            "appid": WEATHER_API_KEY,
+        }
         response = requests.get(WEATHER_BASE_URL, params=params, timeout=10)
         if response.status_code == 200:
             data = response.json()
-            city = data.get("name", "")
-            temp = data.get("main", {}).get("temp", 0)
-            temp_min = data.get("main", {}).get("temp_min", 0)
-            temp_max = data.get("main", {}).get("temp_max", 0)
-            return WeatherData(city, temp, temp_min, temp_max, units)
+            if "name" in data:
+                city = data["name"]
+                temp = data["main"]["temp"]
+                temp_min = data["main"]["temp_min"]
+                temp_max = data["main"]["temp_max"]
+                return WeatherData(city, temp, temp_min, temp_max, units)
+        else:
+            print(f"Error: Weather data not found for {city_name}")
     except requests.exceptions.RequestException as e:
         print(f"An error occurred: {str(e)}")
     return None
+
 
 
 def fetch_and_display_news(get_user_input=input):
