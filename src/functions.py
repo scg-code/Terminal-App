@@ -129,65 +129,67 @@ def fetch_and_display_news(get_user_input=input):
         None: The function displays news articles and interacts with the user.
     """
     try:
-        # Send an HTTP GET request to the News API
-        response = requests.get(NEWS_BASE_URL, params=NEWS_PARAMS, timeout=10)
+        while True:
+            # Send an HTTP GET request to the News API
+            response = requests.get(NEWS_BASE_URL, params=NEWS_PARAMS, timeout=10)
 
-        # Check if the request was successful (status code 200)
-        if response.status_code == 200:
-            # Parse the JSON response
-            data = response.json()
+            # Check if the request was successful (status code 200)
+            if response.status_code == 200:
+                # Parse the JSON response
+                data = response.json()
 
-            # Display only the top 5 articles with a slow typing effect
-            for i, article in enumerate(data["articles"][:5], start=1):
-                title = article["title"]
-                print(f"Article {i}: ", end="")
-                for char in title:
-                    print(char, end="", flush=True)
-                    time.sleep(0.05)  # Adjust this value for typing speed
-                print()
+                # Display only the top 5 articles with a slow typing effect
+                for i, article in enumerate(data["articles"][:5], start=1):
+                    title = article["title"]
+                    print(f"Article {i}: ", end="")
+                    for char in title:
+                        print(char, end="", flush=True)
+                        time.sleep(0.05)  # Adjust this value for typing speed
+                    print()
 
-            while True:
-                choice = get_user_input(
-                    colored(
-                        """Enter an article number to view, (q) to quit, 
-                        or (m) to return to the main menu: """,
-                        "blue",
-                    ))
+                while True:
+                    choice = get_user_input(
+                        colored(
+                            """Enter an article number to view or (q) to quit: """,
+                            "blue",
+                        )
+                    )
 
-                if choice.lower() == "q":
-                    break  # Quit and return to the main menu
-                elif choice.lower() == "m":
-                    return  # Return to the main menu
-                try:
-                    article_number = int(choice)
-                    if 1 <= article_number <= len(data["articles"][:5]):
-                        selected_article = data["articles"][article_number - 1]
-                        print("=" * 40)
-                        print(
-                            colored("Selected Article:", "green")
-                        )  # Highlight the header in green
-                        print("-" * 40)
-                        description = selected_article["description"]
-                        print(f"Title: {selected_article['title']}")
-                        print("Description: ", end="")
-                        for char in description:
-                            print(char, end="", flush=True)
-                            # Adjust this value for typing speed
-                            time.sleep(0.05)
-                        print()
-                        print(
-                            f"URL: {colored(selected_article['url'], 'blue')}")
-                        print("=" * 40)
-                    else:
-                        print("Invalid article number. Please enter a valid number.")
-                except ValueError:
-                    print(
-                        "Invalid input. Please enter a valid article number or 'q' to quit or 'm' to return to the main menu.")
+                    if choice.lower() == "q":
+                        return  # Quit and return to the main menu
 
-        else:
-            print(
-                f"Error: Unable to fetch news - Status Code: {response.status_code}")
+                    try:
+                        article_number = int(choice)
+                        if 1 <= article_number <= len(data["articles"][:5]):
+                            selected_article = data["articles"][article_number - 1]
+                            print("=" * 40)
+                            print(
+                                colored("Selected Article:", "green")
+                            )  # Highlight the header in green
+                            print("-" * 40)
+                            description = selected_article["description"]
+                            print(f"Title: {selected_article['title']}")
+                            print("Description: ", end="")
+                            for char in description:
+                                print(char, end="", flush=True)
+                                # Adjust this value for typing speed
+                                time.sleep(0.05)
+                            print()
+                            print(
+                                f"URL: {colored(selected_article['url'], 'blue')}")
+                            print("=" * 40)
+                        else:
+                            print(colored("Invalid article number.,"
+                                          "Please enter a valid number.","red"))
+                    except ValueError:
+                        print(colored(
+                            "Invalid input. Please enter a valid article,"
+                             "number or 'q' to quit.","red"))
+            else:
+                print(
+                    f"Error: Unable to fetch news - Status Code: {response.status_code}")
     except requests.exceptions.RequestException as e:
         print(f"An error occurred: {str(e)}")
+
 
 # Final new line

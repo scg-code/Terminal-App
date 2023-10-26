@@ -53,7 +53,7 @@ def main():
         elif choice == "3":
             print(
                 Fore.BLUE
-                + "Goodbye! See you next time - "
+                + "Goodbye! See you next time - SkyScribe"
                 + Style.BRIGHT
                 + "\033[4m"
                 + ""
@@ -62,7 +62,6 @@ def main():
             break
         else:
             print(Fore.RED + "Invalid choice. Please try again." + Style.RESET_ALL)
-
 
 if __name__ == "__main__":
     main()
