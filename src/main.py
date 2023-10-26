@@ -21,7 +21,7 @@ information and the latest news.
 
 from colorama import Fore, Style
 from termcolor import colored
-from ui import display_menu, display_weather
+from ui import display_menu, display_weather, display_about
 from functions import get_weather_data, fetch_and_display_news
 
 
@@ -51,6 +51,8 @@ def main():
                   + Style.RESET_ALL)
             fetch_and_display_news()
         elif choice == "3":
+            display_about()  # Show the "About" section
+        elif choice == "4":
             print(
                 Fore.BLUE
                 + "Goodbye! See you next time - SkyScribe"

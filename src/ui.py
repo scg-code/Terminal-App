@@ -9,6 +9,7 @@ Functions:
 - `generate_welcome_text`: Generates a stylish welcome banner for the application.
 - `display_menu`: Displays the main menu for user interaction.
 - `display_weather`: Formats and displays weather information to the user.
+- `display_about`: Displays information about the application.
 
 External Dependencies:
 - `os`: Utilized for system-specific operations such as clearing the terminal screen.
@@ -50,7 +51,8 @@ def display_menu():
     print(colored("Main Menu:\n", "blue", attrs=["bold"]))
     print("1. Weather 🌤️")
     print("2. Latest News 🚨")
-    print("3. Quit")
+    print("3. About ℹ️")
+    print("4. Quit")
     print("===================================")
 
 
@@ -83,3 +85,17 @@ def display_weather(weather_data):
             + "Sorry, I couldn't retrieve weather information for that city."
             + Style.RESET_ALL
         )
+
+
+def display_about():
+    """Display information about the application."""
+    os.system("clear")
+    print(generate_welcome_text())
+    print(colored("About SkyScribe", "blue", attrs=["bold"]))
+    print("===================================")
+    print("SkyScribe is your daily news and weather app.")
+    print("Version: 1.0")
+    print("Developer: Samuel Gifford")
+    print("Description: SkyScribe provides up-to-date weather information,"
+          "and the latest news headlines.")
+    input("Press Enter to return to the main menu...")
