@@ -94,7 +94,7 @@ Description: The "Colorful Text Output" feature enhances the application's user 
 
 These features collectively provide users with a visually engaging and user-friendly experience while delivering real-time weather information and the latest news articles. The application handles potential errors gracefully, ensuring a smooth user experience throughout.
 
-![Alt text](/docs/SkyScribe.png)
+![main menu](/docs/SkyScribe.png)
 
 
 ---
@@ -142,11 +142,26 @@ Once you've extracted the source code, you can run the SkyScribe application by 
 
 2. **Execute the Bash Script:**
    - Run the provided bash script to start the SkyScribe application:
-     ```
-     bash path_to_run_skyscribe.sh
+     ```bash
+     bash run_skyscribe.sh
      ```
 
+ **Note:** The 'run_skyscribe.sh' script automatically changes the working directory to the location of the script, eliminating the need for manual directory navigation. It also checks for and installs any required dependencies, ensuring a smooth user experience.
+
+If you encounter a permission error when trying to run the script, you can change the script's permissions to executable by running the following command before retrying step 2:
+
+```bash
+chmod +x run_skyscribe.sh
+```
+
+
+
+![bash_script](/docs/bash_Script.png)
+
+
+
 The application will launch, providing access to real-time weather information and the latest news. Follow the on-screen instructions to use the application.
+
 
 ## 3. Dependencies
 
@@ -157,6 +172,8 @@ SkyScribe relies on the following external Python libraries:
 - `colorama`: Provides additional color and style options.
 - `tabulate`: Used for tabular formatting of data in the user interface.
 - `pyfiglet`: Generates stylish text for the welcome banner.
+- `os`: Part of the Python standard library, used for system-specific operations.
+- `time`: Part of the Python standard library, provides timing-related functionality.
 
 These dependencies are automatically installed when you run the bash script.
 
@@ -171,7 +188,7 @@ SkyScribe is designed to run on a variety of platforms. It has the following sys
 
 SkyScribe accepts the following command line arguments:
 
-- `bash path_to_run_skyscribe.sh` (No arguments): Start the application with the main menu.
+- `bash run_skyscribe.sh` (No arguments): Start the application with the main menu.
 
 The application will guide you through its features using the menu options. To interact with the weather and news features, simply follow the on-screen instructions.
 
@@ -185,7 +202,7 @@ Once you've installed SkyScribe, follow these basic usage instructions:
    - Open your terminal or command prompt.
 
 2. **Running the Application:**
-   - Execute the provided bash script, `path_to_run_skyscribe.sh`, to start the SkyScribe application.
+   - Execute the provided bash script, `run_skyscribe.sh`, to start the SkyScribe application.
 
 3. **Main Menu:**
    - The main menu provides options to access real-time weather information, the latest news, or information about the application.
@@ -196,7 +213,7 @@ Once you've installed SkyScribe, follow these basic usage instructions:
 
 5. **Reading News Articles:**
    - Select the news option from the menu.
-   - The application will display the top 5 news articles.
+   - The application will display the top 5 news articles for that day.
    - Enter the article number to view details, or press 'q' to return to the menu.
 
 6. **Exiting the Application:**
@@ -204,11 +221,6 @@ Once you've installed SkyScribe, follow these basic usage instructions:
 
 ---
 
-These instructions should guide users through the process of downloading, unzipping, and running the SkyScribe application from the provided source code in the zip file. Your bash script, `run_skyscribe.sh`, will automatically locate the file path.
-
-Enjoy using SkyScribe for real-time weather information and the latest news!
-
----
 
 
 
