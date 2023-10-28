@@ -102,6 +102,57 @@ These features collectively provide users with a visually engaging and user-frie
 
 ## 4. My Implementation Plan
 
+For my implementation plan, I employed the project management tool `Linear`. Prior to diving into the code, I crafted a well-structured task list and established clear priorities within Linear's workspace. These tasks held pivotal milestones, including defining the project scope, conducting research on the data sources I would use, configuring essential tools and libraries, shaping the core program architecture, designing the user interface, implenting robust error handling, testing the application, and lastly crafting documentation in the form of a README.md file and slide deck using keynote. With this approach using Linear,  it laid the foundation for the development of my application `SkyScribe`. 
+
+#### Day 1
+![Day1](/docs/Day%201.png)
+
+
+### Day 2
+![Day2](/docs/Day%202.png)
+
+#### Define Project Scope Complete ✅
+![Day2.1](/docs/Complete%20project%20scope.png)
+
+#### Research and Data Sources Complete ✅
+![Day2.2](/docs/Research%20complete.png)
+
+### Day 3-4
+#### Completed Setting up tools & libraries and Main program structure
+![Day3-4](/docs/Day%203-4.png)
+#### Tools and Libraries Complete
+![Day3-4](/docs/tools%20and%20libaries%20complete.png)
+#### Main Program structure Complete
+![Day3-4](/docs/Main%20program%20structure%20complete.png)
+
+### Day 5
+#### Completed Desinging User Interface
+![Day5](/docs/Day%205.png)
+![Day5](/docs/design%20UI%20complete.png)
+
+### Day 5 Continued
+#### Completed Testing
+![Day5.5](/docs/Day5.5.png)
+![Day5.5](/docs/testing%20complete.png)
+
+### Day 6
+#### Completed Error handling and README.md
+![Day6](/docs/Day%206.png)
+
+![Day6](/docs/Error%20Handling%20complete.png)
+![Day6](/docs/Readme-complete.png)
+
+### Day 7
+#### Completed Slide Deck
+![Day7](/docs/Day%207.png)
+![Day7](/docs/Slidedeck-complete.png)
+
+### Day 8
+#### Final Review
+![Day8](/docs/Day%208.png)
+![Day8](/docs/Final%20review%20complete.png)
+
+
 
 
 ---
