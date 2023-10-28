@@ -2,6 +2,7 @@
 
 from functions import get_weather_data
 
+
 def test_get_weather_data():
     """
     Test cases for the `get_weather_data` function.
@@ -26,7 +27,7 @@ def test_get_weather_data():
     assert result is not None
     assert result.name == "New York"
     assert result.units == "metric"
-    
+
     # Test with an invalid city name
     result = get_weather_data("NonexistentCity", units="imperial")
     assert result is None

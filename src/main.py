@@ -65,5 +65,6 @@ def main():
         else:
             print(Fore.RED + "Invalid choice. Please try again." + Style.RESET_ALL)
 
+
 if __name__ == "__main__":
     main()
