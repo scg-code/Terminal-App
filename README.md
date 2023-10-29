@@ -171,25 +171,41 @@ After you've downloaded and unzipped the SkyScribe source code, follow these ste
      cd ~/Downloads/SamuelGifford_T1A3/src
      ```
 
-3. **Execute the Bash Script:**
+3. **Set Up a Virtual Environment (Recommended):**
+   - To ensure a clean and isolated environment for running SkyScribe, it's recommended to create a virtual environment (venv). If you don't have `virtualenv` installed, you can install it using `pip`:
+     ```bash
+     pip install virtualenv
+     ```
+   - Create a new virtual environment (replace `venv_name` with your preferred name):
+     ```bash
+     virtualenv venv_name
+     ```
+   - Activate the virtual environment:
+     - On macOS and Linux:
+     ```bash
+     source venv_name/bin/activate
+     ```
+     - On Windows (in Command Prompt):
+     ```bash
+     venv_name\Scripts\activate
+     ```
+
+4. **Execute the Bash Script:**
    - Run the provided bash script to start the SkyScribe application:
      ```bash
      bash run_skyscribe.sh
      ```
 
-4. **Execute Permission Fix (if needed):**
-   - If you encounter a permission error when trying to run the script, change the script's permissions to executable by running the following command before retrying step 3:
+5. **Execute Permission Fix (if needed):**
+   - If you encounter a permission error when trying to run the script, change the script's permissions to executable by running the following command before retrying step 4:
      ```bash
      chmod +x run_skyscribe.sh
      ```
 
-
-
-![bash_script](/docs/bash_Script.png)
-
 The application will launch, providing access to real-time weather information and the latest news. Follow the on-screen instructions to use the application.
 
 **Note:** If you're not already in the `src` directory, make sure to navigate to that directory before running the script as described in step 2.
+
 
 
 ## 3. Dependencies
