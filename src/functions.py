@@ -137,7 +137,7 @@ def fetch_and_display_news(get_user_input=input):
     """
     try:
         while True:
-            # Send an HTTP GET request to the News API
+            # Send a HTTP GET request to the News API
             response = requests.get(
                 NEWS_BASE_URL, params=NEWS_PARAMS, timeout=10)
 
@@ -152,7 +152,7 @@ def fetch_and_display_news(get_user_input=input):
                     print(f"Article {i}: ", end="")
                     for char in title:
                         print(char, end="", flush=True)
-                        time.sleep(0.05)  # Adjust this value for typing speed
+                        time.sleep(0.05)  # Value for typing speed effect
                     print()
 
                 while True:
@@ -180,7 +180,7 @@ def fetch_and_display_news(get_user_input=input):
                             print("Description: ", end="")
                             for char in description:
                                 print(char, end="", flush=True)
-                                # Adjust this value for typing speed
+                                # Adjusted value for typing speed
                                 time.sleep(0.05)
                             print()
                             print(
@@ -198,6 +198,3 @@ def fetch_and_display_news(get_user_input=input):
                     f"Error: Unable to fetch news - Status Code: {response.status_code}")
     except requests.exceptions.RequestException as e:
         print(f"An error occurred: {str(e)}")
-
-
-# Final new line
