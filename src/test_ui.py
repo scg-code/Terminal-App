@@ -4,8 +4,9 @@ Unit Tests for SkyScribe UI Functions
 This module contains unit tests for the UI functions in the SkyScribe application.
 """
 
-from ui import display_menu, display_about
 from unittest.mock import patch
+from ui import display_menu, display_about
+
 
 def test_display_menu(capsys):
     """
