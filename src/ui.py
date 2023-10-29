@@ -96,6 +96,8 @@ def display_about():
     print("SkyScribe is your daily news and weather app.")
     print("Version: 1.0")
     print("Developer: Samuel Gifford")
-    print("Description: SkyScribe provides up-to-date weather information,"
-          "and the latest news headlines.")
+    print(
+        "Description: SkyScribe provides up-to-date weather information,"
+        "and the latest news headlines."
+    )
     input("Press Enter to return to the main menu...")

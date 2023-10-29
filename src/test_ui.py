@@ -20,7 +20,8 @@ def test_display_menu(capsys):
     assert "3. About ℹ️" in captured.out
     assert "4. Quit" in captured.out
 
-@patch('builtins.input', return_value="")
+
+@patch("builtins.input", return_value="")
 def test_display_about(mock_input, capsys):
     """
     Test the display_about function to ensure it displays about information correctly.
@@ -30,4 +31,7 @@ def test_display_about(mock_input, capsys):
     assert "About SkyScribe" in captured.out
     assert "Version: 1.0" in captured.out
     assert "Developer: Samuel Gifford" in captured.out
-    assert "Description: SkyScribe provides up-to-date weather information," in captured.out
+    assert (
+        "Description: SkyScribe provides up-to-date weather information,"
+        in captured.out
+    )

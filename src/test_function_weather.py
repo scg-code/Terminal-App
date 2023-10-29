@@ -2,6 +2,7 @@
 
 from functions import get_weather_data
 
+
 def test_get_weather_data():
     """
     Test cases for the `get_weather_data` function.
@@ -22,7 +23,7 @@ def test_get_weather_data():
 
     4. Test error cases using try-except:
         - Test with a city name that does not exist.
-        - Assert that the result is None. """
+        - Assert that the result is None."""
 
     # Test with a valid city name (e.g., New York) in metric units
     result = get_weather_data("New York", units="metric")

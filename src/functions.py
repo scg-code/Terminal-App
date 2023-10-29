@@ -101,8 +101,7 @@ def get_weather_data(city_name, units="metric"):
     """
     # Validate the units parameter
     if units not in ["metric", "imperial"]:
-        raise ValueError(
-            "Invalid units. Supported units are 'metric' and 'imperial'.")
+        raise ValueError("Invalid units. Supported units are 'metric' and 'imperial'.")
 
     try:
         params = {
@@ -138,8 +137,7 @@ def fetch_and_display_news(get_user_input=input):
     try:
         while True:
             # Send a HTTP GET request to the News API
-            response = requests.get(
-                NEWS_BASE_URL, params=NEWS_PARAMS, timeout=10)
+            response = requests.get(NEWS_BASE_URL, params=NEWS_PARAMS, timeout=10)
 
             # Check if the request was successful (status code 200)
             if response.status_code == 200:
@@ -183,18 +181,27 @@ def fetch_and_display_news(get_user_input=input):
                                 # Adjusted value for typing speed
                                 time.sleep(0.05)
                             print()
-                            print(
-                                f"URL: {colored(selected_article['url'], 'blue')}")
+                            print(f"URL: {colored(selected_article['url'], 'blue')}")
                             print("=" * 40)
                         else:
-                            print(colored("Invalid article number.,"
-                                          "Please enter a valid number.", "red"))
+                            print(
+                                colored(
+                                    "Invalid article number.,"
+                                    "Please enter a valid number.",
+                                    "red",
+                                )
+                            )
                     except ValueError:
-                        print(colored(
-                            "Invalid input. Please enter a valid article,"
-                            "number or 'q' to quit.", "red"))
+                        print(
+                            colored(
+                                "Invalid input. Please enter a valid article,"
+                                "number or 'q' to quit.",
+                                "red",
+                            )
+                        )
             else:
                 print(
-                    f"Error: Unable to fetch news - Status Code: {response.status_code}")
+                    f"Error: Unable to fetch news - Status Code: {response.status_code}"
+                )
     except requests.exceptions.RequestException as e:
         print(f"An error occurred: {str(e)}")

@@ -47,8 +47,7 @@ def main():
                 "Press Enter to return..."
             )  # Wait for user input before displaying the menu
         elif choice == "2":
-            print(Fore.BLUE + "\nFetching The Latest News..."
-                  + Style.RESET_ALL)
+            print(Fore.BLUE + "\nFetching The Latest News..." + Style.RESET_ALL)
             fetch_and_display_news()
         elif choice == "3":
             display_about()  # Show the "About" section
