@@ -158,60 +158,38 @@ For my implementation plan, I employed the project management tool `Linear`. Pri
 ---
 <div style="margin-top: 70px;"></div>
 
-## 5. SkyScribe Application Help Documentation
+## 5. Running the SkyScribe Application
 
-Welcome to SkyScribe, your daily news and weather app. This documentation will guide you through running the application from the provided source code in a zip file.
-
-## Table of Contents
-
-1. [Downloading and Unzipping](#1-downloading-and-unzipping)
-2. [Running the Application](#2-running-the-application)
-3. [Dependencies](#3-dependencies)
-4. [System Requirements](#4-system-requirements)
-5. [Command Line Arguments](#5-command-line-arguments)
-6. [Usage Instructions](#6-usage-instructions)
-
----
-
-## 1. Downloading and Unzipping
-
-To get started with SkyScribe, follow these steps:
-
-1. **Download the ZIP File:**
-   - You will receive a zip file called "SamuelGifford_T1A3.zip" as part of the project submission.
-
-2. **Unzip the File:**
-   - Find the downloaded ZIP file and extract its contents to a directory of your choice.
-   - This will create a directory named "SamuelGifford_T1A3" with the application's source code.
-
-## 2. Running the Application
-
-Once you've extracted the source code, you can run the SkyScribe application by following these steps:
+After you've downloaded and unzipped the SkyScribe source code, follow these steps to run the application:
 
 1. **Open a Terminal:**
    - Open your terminal or command prompt.
 
-2. **Execute the Bash Script:**
+2. **Navigate to the Source Code Directory:**
+   - Change your working directory to the location of the extracted source code. You can do this with the `cd` command. For example, if the source code is in your Downloads directory:
+     ```bash
+     cd ~/Downloads/SamuelGifford_T1A3/src
+     ```
+
+3. **Execute the Bash Script:**
    - Run the provided bash script to start the SkyScribe application:
      ```bash
      bash run_skyscribe.sh
      ```
 
- **Note:** The 'run_skyscribe.sh' script automatically changes the working directory to the location of the script, eliminating the need for manual directory navigation. It also checks for and installs any required dependencies, ensuring a smooth user experience.
-
-If you encounter a permission error when trying to run the script, you can change the script's permissions to executable by running the following command before retrying step 2:
-
-```bash
-chmod +x run_skyscribe.sh
-```
+4. **Execute Permission Fix (if needed):**
+   - If you encounter a permission error when trying to run the script, change the script's permissions to executable by running the following command before retrying step 3:
+     ```bash
+     chmod +x run_skyscribe.sh
+     ```
 
 
 
 ![bash_script](/docs/bash_Script.png)
 
-
-
 The application will launch, providing access to real-time weather information and the latest news. Follow the on-screen instructions to use the application.
+
+**Note:** If you're not already in the `src` directory, make sure to navigate to that directory before running the script as described in step 2.
 
 
 ## 3. Dependencies
@@ -272,6 +250,57 @@ Once you've installed SkyScribe, follow these basic usage instructions:
 
 ---
 
+## 6. Testing Methods
+
+### 1. Unit Tests for SkyScribe UI Functions
+This module contains unit tests for the UI functions in the SkyScribe application.
+
+**Methods Tested:**
+- `display_menu`: Tests the display_menu function to ensure it displays the main menu correctly.
+- `display_about`: Tests the display_about function to ensure it displays about information correctly.
+
+**How They Were Tested:**
+
+1. **Test for `display_menu` Function:**
+   - Display the main menu using `display_menu`.
+   - Capture the output using `capsys.readouterr()`.
+   - Assert that the captured output contains specific menu items (e.g., "Main Menu," "Weather," "Latest News," "About," and "Quit").
+
+2. **Test for `display_about` Function:**
+   - Display the "About" information using `display_about`.
+   - Capture the output using `capsys.readouterr()`.
+   - Assert that the captured output contains information such as "About SkyScribe," version, developer, and description.
+
+### 2. Test Cases for the `get_weather_data` Function
+This module contains test cases for the `get_weather_data` function. It tests various scenarios, including valid and invalid city names, units, and edge cases.
+
+**Methods Tested:**
+- `get_weather_data`: Tests the `get_weather_data` function to retrieve weather data for a specified location.
+
+**Test Cases:**
+1. Test with a valid city name (e.g., New York) in metric units:
+   - Assert that the result is not None.
+   - Assert that the city name and units in the result match the input.
+
+2. Test with an invalid city name in imperial units:
+   - Assert that the result is None.
+
+3. Test with a city name containing non-alphabet characters (e.g., numbers) in metric units:
+   - Assert that the result is None.
+
+4. Test error cases using try-except:
+   - Test with a city name that does not exist.
+   - Assert that the result is None.
+
+### 3. Unit Tests for News API Access
+This module contains unit tests for accessing the News API to ensure it returns a valid response.
+
+**Methods Tested:**
+- `test_news_api`: Tests the News API access to check whether the API access is working correctly and that it responds with a status code of 200.
+
+**How It Was Tested:**
+1. Make an API request to the News API using a valid API key and parameters.
+2. Check whether the API responds with a status code of 200, indicating a successful request.
 
 
 
