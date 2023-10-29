@@ -303,4 +303,31 @@ This module contains unit tests for accessing the News API to ensure it returns 
 2. Check whether the API responds with a status code of 200, indicating a successful request.
 
 
+## 7. Running Tests (Bash Script)
+
+To run the unit tests for the SkyScribe application, you can use a provided bash script that automates the process. Follow these steps:
+
+1. **Open a Terminal:**
+   - Open your terminal or command prompt.
+
+2. **Navigate to the Application Directory:**
+   - Ensure you are in the directory where you unzipped the SkyScribe application source code. If not, use the `cd` command to navigate to the application directory:
+     ```bash
+     cd path/to/SamuelGifford_T1A3/src
+     ```
+
+3. **Execute the Test Script:**
+   - Run the following command to execute the test script:
+     ```bash
+     bash run_tests.sh
+     ```
+
+   This script will automatically check for and install `pytest` if it's not already installed and then run the following tests:
+   - UI Function Tests
+   - Weather Function Tests
+   - News Function Tests
+
+   The results of the tests will be displayed in your terminal.
+
+![bash_script](/docs/test%20bash%20script.png)
 
